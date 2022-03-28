@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MoviesController } from './movies/movies.controller';
-import { MoviesService } from './movies/movies.service';
+import { MoviesModule } from './movies/movies.module';
 
 // nestjs는 데코레이터 문법을 사용한다. (클래스에 함수 기능을 추가할 수 있음)
 @Module({
-  imports: [],
-  controllers: [MoviesController],
-  providers: [MoviesService],
+  imports: [MoviesModule],
+  controllers: [AppController],
+  providers: [],
 })
 export class AppModule {}
 // 모든 모듈의 구심점(?)이 된다. root-module이라고 생각하면 된다. 마치 리액트의 app.js같은 느낌이랄까..
